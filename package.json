@@ -1,0 +1,44 @@
+{
+  "name": "typescript-html5-starter",
+  "version": "1.0.0",
+  "description": "TypeScript & HTML5 Library Boilerplate",
+  "main": "dist/index.js",
+  "scripts": {
+    "build:compile": "rollup -c",
+    "uglify:dist": "uglifyjs dist/lib.js -o dist/lib.min.js --source-map",
+    "uglify:lib": "uglifyjs lib/lib.mjs -o lib/lib.min.mjs --source-map",
+    "build": "npm run build:compile && npm run uglify:dist && npm run uglify:lib",
+    "publish": "npm run build && npm publish",
+    "dev": "concurrently 'rollup -cw' 'node test/server.js'",
+    "clean": "rimraf dist lib",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahas/typescript-html5-starter.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "HTML5",
+    "Boilerplate",
+    "Starter"
+  ],
+  "author": "ahas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ahas/typescript-html5-starter/issues"
+  },
+  "homepage": "https://github.com/ahas/typescript-html5-starter#readme",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.4",
+    "concurrently": "^8.2.1",
+    "express": "^4.18.2",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "rollup": "^3.29.3",
+    "rollup-plugin-minify": "^1.0.3",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "uglify-js": "^3.17.4"
+  }
+}
